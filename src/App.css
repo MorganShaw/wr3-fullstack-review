@@ -58,3 +58,11 @@ header {
   text-decoration: none;
   color: black;
 }
+
+
+.login-container > div { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  }
