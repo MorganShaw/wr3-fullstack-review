@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {loginUser} from '../redux/reducer';
 
+//Import from packages, and also any functions you need from the reducer file.
 class Login extends React.Component {
     constructor(){
         super();
@@ -31,6 +34,7 @@ class Login extends React.Component {
         axios.post('/auth/login', {email, password}).then(res => {
             //history is from package react-router-dom - allows you to see where you've been.
             //this will only fire is login is successful. Don't use a link here because that's insecure - will push them through even if they don't login or login incorrectly.
+            this.props.loginUser(res.data)
             this.props.history.push('/front_page')
         }).catch(err => {
             console.log(err)
@@ -41,6 +45,7 @@ class Login extends React.Component {
     register = () => {
         const {email, password, firstName, lastName} = this.state;
         axios.post('/auth/register', {email, password, firstName, lastName}).then(res => {
+            this.props.loginUser(res.data);
             this.props.history.push('/front_page');
         }).catch(err => {
             console.log(err)
@@ -83,4 +88,8 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+
+const mapStateToProps = state => state;
+
+//You don't have to use mapStateToProps, but if you don't, you need to put 'null' in its place.
+export default connect(mapStateToProps, {loginUser})(Login);

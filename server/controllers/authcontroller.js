@@ -15,7 +15,7 @@ module.exports = {
                     userID: user[0].user_id,
                     email: user[0].email,
                     firstName: user[0].first_name,
-                    lastName: user[0].lastName
+                    lastName: user[0].last_name
                 }
                 res.status(200).send(req.session.user)
             } else {
@@ -44,8 +44,8 @@ module.exports = {
         req.session.user = {
             userId: newUser.user_id,
             email: newUser.email,
-            firstName: newUser.firstName,
-            lastName: newUser.lastName
+            firstName: newUser.first_name,
+            lastName: newUser.last_name
         }
         res.status(200).send(req.session.user)
 
