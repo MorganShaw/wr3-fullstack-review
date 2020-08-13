@@ -7,17 +7,17 @@ module.exports = {
         const {email, password} = req.body;
         const user = await db.check_user(email);
         if(!user[0]){
-            return res.status(404).send('User does not exist');
+            return res.status(401).send('Incorrect credentials');
         } else {
             const authenticated = bcrypt.compareSync(password, user[0].password)
             if(authenticated){
-                req.sessions.user = {
+                req.session.user = {
                     userID: user[0].user_id,
                     email: user[0].email,
                     firstName: user[0].first_name,
                     lastName: user[0].lastName
                 }
-                res.status(200).send(req.sessions.user)
+                res.status(200).send(req.session.user)
             } else {
                 res.status(403).send("Email or password incorrect")
             }
@@ -47,6 +47,7 @@ module.exports = {
             firstName: newUser.firstName,
             lastName: newUser.lastName
         }
+        res.status(200).send(req.session.user)
 
     },
     //We don't need async for logout and getUser because we're not using any asynchronous code (promises, etc.). 

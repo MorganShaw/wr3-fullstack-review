@@ -28,10 +28,9 @@ massive({
 //endpoints for authentication
 app.post('/auth/login', auth.login)
 app.post('/auth/register', auth.register)
-app.delete('/auth/logout', auth.logout)
-// logout can be a get as well.
+app.get('/auth/logout', auth.logout)
 app.get('/auth/user', auth.getUser)
 
 app.listen(SERVER_PORT, () => {
-    console.log(`Server is listening on port ${SERVER_PORT}`)
+    console.log(`Server is listening on port ${SERVER_PORT}⚓`)
 })
