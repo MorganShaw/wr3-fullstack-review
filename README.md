@@ -36,7 +36,7 @@ CREATE TABLE posts (
     post_id SERIAL PRIMARY KEY,
     body TEXT,
     img TEXT,
-    karma_score INT,
+    post_karma_score INT,
     user_id INT REFERENCES users(user_id)
 );
 ```
@@ -83,7 +83,4 @@ CREATE TABLE comments (
         - redux/
             - store.js
             - reducer.js
-App.js
-App.css
-reset.css
-redux/ -store.js - reducer.js
+

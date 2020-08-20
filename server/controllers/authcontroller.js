@@ -12,7 +12,7 @@ module.exports = {
             const authenticated = bcrypt.compareSync(password, user[0].password)
             if(authenticated){
                 req.session.user = {
-                    userID: user[0].user_id,
+                    userId: user[0].user_id,
                     email: user[0].email,
                     firstName: user[0].first_name,
                     lastName: user[0].last_name
@@ -55,7 +55,7 @@ module.exports = {
         req.session.destroy();
         res.sendStatus(200);
     },
-    //This is to check to see if user is logged in already. Something about redux...see lecture at 12:06pm.
+    //This is to check to see if user is logged in already. It saves it in redux eventually, so that when something refreshes/reloads, you don't have to have the user login all over again. 
     getUser: (req, res) => {
         if (req.session.user){
             res.status(200).send(req.session.user)

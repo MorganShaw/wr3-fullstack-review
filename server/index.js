@@ -15,6 +15,7 @@ app.use(session({
     secret: SESSION_SECRET
 }));
 
+
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {
@@ -23,6 +24,7 @@ massive({
 }).then(db => {
     app.set('db', db)
     console.log('connected to db')
+    //This console log won't show unless db is connected. 
 }).catch(err => console.log(err))
 
 //endpoints for authentication

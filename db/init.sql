@@ -1,4 +1,4 @@
---Can't create dummy data for users because of password. Can't store password in database. Can only store hash in database.
+--Can't create dummy data for users because of password. Can't store password in database. Can only store the hash password in the database.
 
 
 CREATE TABLE app_users (
