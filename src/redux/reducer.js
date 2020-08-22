@@ -10,7 +10,7 @@ const LOGIN_USER = 'LOGIN_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
 const GET_USER = 'GET_USER';
 
-//Action creator (will return an object with two properties, a type and a payload. Payload is the data from the axios call.)
+//Action creator (will return an object with two properties, a type and a payload. Payload is the res.data from the axios call in the login function ( in Login.js).)
 export function loginUser(user){
     return {
         type: LOGIN_USER,
@@ -39,7 +39,7 @@ export function getUser(){
 export default function (state = initialState, action){
     switch(action.type){
         case LOGIN_USER:
-            return {...state, user:action.payload, isLoggedIn:true}
+            return {...state, user: action.payload, isLoggedIn:true}
         case LOGOUT_USER:
             return {...state, ...action.payload}
         case GET_USER + "_PENDING":
