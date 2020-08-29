@@ -11,7 +11,8 @@
 - users can view their profile to see their posts and karma
 </br>
 </br>
-***Icebox***
+
+___Icebox___
 - users can comment on posts
 - users can upvote/downvote posts
 
@@ -73,7 +74,16 @@ CREATE TABLE comments (
 - File Structure:
     - src/
         - Components/
+            - Login.js
             - Header.js
+            - Dashboard.js
+            - Job.js
+            - Action.js
+            - Contacts.js
+            - AddJob.js
+            - AddAction.js
+            - AddContact.js
+
             - FrontPage.js
             - Login.js
             - Profile.js
